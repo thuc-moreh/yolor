@@ -1,0 +1,5 @@
+runs
+__pycache__
+coco2017labels.zip
+#model checkpoints
+*.pt 

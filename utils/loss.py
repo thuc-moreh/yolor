@@ -145,6 +145,7 @@ def build_targets(p, targets, model):
             r = t[None, :, 4:6] / anchors[:, None]  # wh ratio
             j = torch.max(r, 1. / r).max(2)[0] < model.hyp['anchor_t']  # compare
             # j = wh_iou(anchors, t[:, 4:6]) > model.hyp['iou_t']  # iou(3,n) = wh_iou(anchors(3,2), gwh(n,2))
+            j = j.cpu()
             a, t = at[j], t.repeat(na, 1, 1)[j]  # filter
 
             # overlaps
@@ -152,6 +153,10 @@ def build_targets(p, targets, model):
             z = torch.zeros_like(gxy)
             j, k = ((gxy % 1. < g) & (gxy > 1.)).T
             l, m = ((gxy % 1. > (1 - g)) & (gxy < (gain[[2, 3]] - 1.))).T
+            j = j.cpu()
+            k = k.cpu()
+            l = l.cpu()
+            m = m.cpu()
             a, t = torch.cat((a, a[j], a[k], a[l], a[m]), 0), torch.cat((t, t[j], t[k], t[l], t[m]), 0)
             offsets = torch.cat((z, z[j] + off[0], z[k] + off[1], z[l] + off[2], z[m] + off[3]), 0) * g
 
@@ -164,7 +169,7 @@ def build_targets(p, targets, model):
 
         # Append
         #indices.append((b, a, gj, gi))  # image, anchor, grid indices
-        indices.append((b, a, gj.clamp_(0, gain[3] - 1), gi.clamp_(0, gain[2] - 1)))  # image, anchor, grid indices
+        indices.append((b, a, gj.clamp_(0, int((gain[3] - 1).item())), gi.clamp_(0, int( (gain[2] - 1).item() ) )))  # image, anchor, grid indices
         tbox.append(torch.cat((gxy - gij, gwh), 1))  # box
         anch.append(anchors[a])  # anchors
         tcls.append(c)  # class
