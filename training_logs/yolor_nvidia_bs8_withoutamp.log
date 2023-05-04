@@ -1,0 +1,268 @@
+(yolor) ubuntu@haca1002:/nas/thuchk/yolor$ bash train.sh
+Using torch 2.0.0+cu117 CUDA:0 (A100-PCIE-40GB, 40536MB)
+
+Namespace(adam=False, batch_size=16, bucket='', cache_images=False, cfg='cfg/yolor_p6.cfg', data='./data/coco.yaml', dev
+ice='0', epochs=1, evolve=False, exist_ok=False, global_rank=-1, hyp='./data/hyp.scratch.1280.yaml', image_weights=False
+, img_size=[1280, 1280], local_rank=-1, log_imgs=16, multi_scale=False, name='yolor_p6', noautoanchor=False, nosave=Fals
+e, notest=False, project='runs/train', rect=False, resume=False, save_dir='runs/train/yolor_p632', single_cls=False, syn
+c_bn=False, total_batch_size=16, weights='', workers=8, world_size=1)
+Start Tensorboard with "tensorboard --logdir runs/train", view at http://localhost:6006/
+Hyperparameters {'lr0': 0.01, 'lrf': 0.2, 'momentum': 0.937, 'weight_decay': 0.0005, 'warmup_epochs': 3.0, 'warmup_momen
+tum': 0.8, 'warmup_bias_lr': 0.1, 'box': 0.05, 'cls': 0.5, 'cls_pw': 1.0, 'obj': 1.0, 'obj_pw': 1.0, 'iou_t': 0.2, 'anch
+or_t': 4.0, 'fl_gamma': 0.0, 'hsv_h': 0.015, 'hsv_s': 0.7, 'hsv_v': 0.4, 'degrees': 0.0, 'translate': 0.5, 'scale': 0.5,
+ 'shear': 0.0, 'perspective': 0.0, 'flipud': 0.0, 'fliplr': 0.5, 'mosaic': 1.0, 'mixup': 0.0}
+/nas/.conda/envs/yolor/lib/python3.8/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming
+release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape
+.cpp:3483.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Model Summary: 665 layers, 37265016 parameters, 37265016 gradients, 81.842611200 GFLOPS
+Optimizer groups: 145 .bias, 145 conv.weight, 149 other
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (1323 found, 0 missing, 14 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (2703 found, 0 missing, 32 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (4086 found, 0 missing, 39 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (5453 found, 0 missing, 55 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (6824 found, 0 missing, 70 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (8197 found, 0 missing, 84 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (9574 found, 0 missing, 93 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (10948 found, 0 missing, 104 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (12317 found, 0 missing, 118 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (13707 found, 0 missing, 129 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (15098 found, 0 missing, 140 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (16474 found, 0 missing, 156 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (17846 found, 0 missing, 167 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (19215 found, 0 missing, 181 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (20595 found, 0 missing, 196 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (21963 found, 0 missing, 210 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (23326 found, 0 missing, 223 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (24699 found, 0 missing, 231 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (26056 found, 0 missing, 247 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (27377 found, 0 missing, 259 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (28732 found, 0 missing, 273 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (30090 found, 0 missing, 282 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (31432 found, 0 missing, 292 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (32770 found, 0 missing, 301 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (34154 found, 0 missing, 311 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (35550 found, 0 missing, 322 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (36919 found, 0 missing, 329 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (38304 found, 0 missing, 339 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (39665 found, 0 missing, 358 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (41050 found, 0 missing, 368 empty, 2 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (42440 found, 0 missing, 375 empty, 2 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (43825 found, 0 missing, 385 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (45197 found, 0 missing, 401 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (46565 found, 0 missing, 417 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (47953 found, 0 missing, 429 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (49319 found, 0 missing, 446 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (50687 found, 0 missing, 461 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (52060 found, 0 missing, 473 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (53450 found, 0 missing, 485 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (54823 found, 0 missing, 499 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (56208 found, 0 missing, 513 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (57592 found, 0 missing, 527 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (58970 found, 0 missing, 538 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (60342 found, 0 missing, 552 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (61715 found, 0 missing, 562 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (63100 found, 0 missing, 569 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (64474 found, 0 missing, 580 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (65848 found, 0 missing, 591 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (67236 found, 0 missing, 600 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (68623 found, 0 missing, 614 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (70013 found, 0 missing, 630 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (71399 found, 0 missing, 638 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (72777 found, 0 missing, 649 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (74147 found, 0 missing, 663 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (75517 found, 0 missing, 674 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (76884 found, 0 missing, 686 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (78239 found, 0 missing, 697 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (79585 found, 0 missing, 705 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (80896 found, 0 missing, 715 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (82186 found, 0 missing, 740 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (83526 found, 0 missing, 752 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (84840 found, 0 missing, 761 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (86147 found, 0 missing, 771 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (87455 found, 0 missing, 790 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (88781 found, 0 missing, 797 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (90083 found, 0 missing, 812 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (91383 found, 0 missing, 825 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (92684 found, 0 missing, 834 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (93984 found, 0 missing, 841 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (95277 found, 0 missing, 847 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (96564 found, 0 missing, 853 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (97861 found, 0 missing, 858 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (99145 found, 0 missing, 869 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (100437 found, 0 missing, 875 empty, 3 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (101772 found, 0 missing, 893 empty, 3 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (103098 found, 0 missing, 909 empty, 3 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (104409 found, 0 missing, 919 empty, 3 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (105718 found, 0 missing, 931 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (107026 found, 0 missing, 942 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (108331 found, 0 missing, 953 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (109631 found, 0 missing, 963 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (110925 found, 0 missing, 976 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (112220 found, 0 missing, 985 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (113527 found, 0 missing, 993 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (114817 found, 0 missing, 1002 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (116137 found, 0 missing, 1014 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (117266 found, 0 missing, 1021 empty, 4 duplicate, for
+ 118287 images): 118287it [00:08, 13489.59it/s]
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (1065 found, 0 missing, 11 empty, 0 duplicate, for 5000
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (2175 found, 0 missing, 20 empty, 0 duplicate, for 5000
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (3283 found, 0 missing, 31 empty, 0 duplicate, for 5000
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (4401 found, 0 missing, 43 empty, 0 duplicate, for 5000
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (4952 found, 0 missing, 48 empty, 0 duplicate, for 5000
+images): 5000it [00:00, 11142.56it/s]
+Image sizes 1280 train, 1280 test
+Using 8 dataloader workers
+Logging results to runs/train/yolor_p632
+Starting training for 1 epochs...
+
+     Epoch   gpu_mem       box       obj       cls     total   targets  img_size
+  0%|                                                                                          | 0/7393 [00:05<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 538, in <module>
+    train(hyp, opt, device, tb_writer, wandb)
+  File "train.py", line 288, in train
+    pred = model(imgs)  # forward
+  File "/nas/.conda/envs/yolor/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/thuchk/yolor/models/models.py", line 543, in forward
+    return self.forward_once(x)
+  File "/nas/thuchk/yolor/models/models.py", line 604, in forward_once
+    x = module(x)
+  File "/nas/.conda/envs/yolor/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/.conda/envs/yolor/lib/python3.8/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/nas/.conda/envs/yolor/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/.conda/envs/yolor/lib/python3.8/site-packages/torch/nn/modules/batchnorm.py", line 171, in forward
+    return F.batch_norm(
+  File "/nas/.conda/envs/yolor/lib/python3.8/site-packages/torch/nn/functional.py", line 2450, in batch_norm
+    return torch.batch_norm(
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 MiB (GPU 0; 39.59 GiB total capacity; 38.05 GiB
+ already allocated; 6.19 MiB free; 38.13 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try
+ setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+(yolor) ubuntu@haca1002:/nas/thuchk/yolor$ bash train.sh
+Using torch 2.0.0+cu117 CUDA:0 (A100-PCIE-40GB, 40536MB)
+
+Namespace(adam=False, batch_size=8, bucket='', cache_images=False, cfg='cfg/yolor_p6.cfg', data='./data/coco.yaml', devi
+ce='0', epochs=1, evolve=False, exist_ok=False, global_rank=-1, hyp='./data/hyp.scratch.1280.yaml', image_weights=False,
+ img_size=[1280, 1280], local_rank=-1, log_imgs=16, multi_scale=False, name='yolor_p6', noautoanchor=False, nosave=False
+, notest=False, project='runs/train', rect=False, resume=False, save_dir='runs/train/yolor_p633', single_cls=False, sync
+_bn=False, total_batch_size=8, weights='', workers=8, world_size=1)
+Start Tensorboard with "tensorboard --logdir runs/train", view at http://localhost:6006/
+Hyperparameters {'lr0': 0.01, 'lrf': 0.2, 'momentum': 0.937, 'weight_decay': 0.0005, 'warmup_epochs': 3.0, 'warmup_momen
+tum': 0.8, 'warmup_bias_lr': 0.1, 'box': 0.05, 'cls': 0.5, 'cls_pw': 1.0, 'obj': 1.0, 'obj_pw': 1.0, 'iou_t': 0.2, 'anch
+or_t': 4.0, 'fl_gamma': 0.0, 'hsv_h': 0.015, 'hsv_s': 0.7, 'hsv_v': 0.4, 'degrees': 0.0, 'translate': 0.5, 'scale': 0.5,
+ 'shear': 0.0, 'perspective': 0.0, 'flipud': 0.0, 'fliplr': 0.5, 'mosaic': 1.0, 'mixup': 0.0}
+/nas/.conda/envs/yolor/lib/python3.8/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming
+release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape
+.cpp:3483.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Model Summary: 665 layers, 37265016 parameters, 37265016 gradients, 81.842611200 GFLOPS
+Optimizer groups: 145 .bias, 145 conv.weight, 149 other
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (1265 found, 0 missing, 14 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (2528 found, 0 missing, 30 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (3766 found, 0 missing, 39 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (5010 found, 0 missing, 49 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (6262 found, 0 missing, 64 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (7517 found, 0 missing, 76 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (8825 found, 0 missing, 87 empty, 0 duplicate, for 118
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (10175 found, 0 missing, 99 empty, 0 duplicate, for 11
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (11528 found, 0 missing, 109 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (12837 found, 0 missing, 123 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (14152 found, 0 missing, 135 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (15500 found, 0 missing, 146 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (16827 found, 0 missing, 159 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (18155 found, 0 missing, 170 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (19513 found, 0 missing, 182 empty, 0 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (20873 found, 0 missing, 200 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (22223 found, 0 missing, 213 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (23594 found, 0 missing, 224 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (24950 found, 0 missing, 233 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (26291 found, 0 missing, 250 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (27634 found, 0 missing, 262 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (28977 found, 0 missing, 275 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (30322 found, 0 missing, 284 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (31663 found, 0 missing, 294 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (33002 found, 0 missing, 304 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (34356 found, 0 missing, 312 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (35706 found, 0 missing, 325 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (37057 found, 0 missing, 330 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (38430 found, 0 missing, 339 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (39801 found, 0 missing, 358 empty, 1 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (41159 found, 0 missing, 369 empty, 2 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (42522 found, 0 missing, 375 empty, 2 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (43866 found, 0 missing, 385 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (45180 found, 0 missing, 401 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (46494 found, 0 missing, 416 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (47814 found, 0 missing, 425 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (49122 found, 0 missing, 443 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (50433 found, 0 missing, 456 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (51790 found, 0 missing, 471 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (53122 found, 0 missing, 482 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (54497 found, 0 missing, 498 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (55861 found, 0 missing, 509 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (57231 found, 0 missing, 525 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (58589 found, 0 missing, 535 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (60102 found, 0 missing, 546 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (61618 found, 0 missing, 561 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (63095 found, 0 missing, 569 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (64609 found, 0 missing, 580 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (66120 found, 0 missing, 594 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (67625 found, 0 missing, 603 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (69156 found, 0 missing, 619 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (70652 found, 0 missing, 636 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (72159 found, 0 missing, 642 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (73608 found, 0 missing, 659 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (75034 found, 0 missing, 674 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (76537 found, 0 missing, 685 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (78019 found, 0 missing, 696 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (79524 found, 0 missing, 705 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (81019 found, 0 missing, 717 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (82480 found, 0 missing, 741 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (83980 found, 0 missing, 757 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (85464 found, 0 missing, 764 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (86935 found, 0 missing, 783 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (88436 found, 0 missing, 796 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (89941 found, 0 missing, 810 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (91427 found, 0 missing, 826 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (92892 found, 0 missing, 834 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (94321 found, 0 missing, 845 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (95739 found, 0 missing, 850 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (97148 found, 0 missing, 855 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (98551 found, 0 missing, 863 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (99921 found, 0 missing, 873 empty, 3 duplicate, for 1
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (101283 found, 0 missing, 887 empty, 3 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (102644 found, 0 missing, 907 empty, 3 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (104010 found, 0 missing, 914 empty, 3 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (105375 found, 0 missing, 929 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (106739 found, 0 missing, 938 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (108098 found, 0 missing, 950 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (109453 found, 0 missing, 962 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (110803 found, 0 missing, 974 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (112160 found, 0 missing, 984 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (113517 found, 0 missing, 993 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (114885 found, 0 missing, 1003 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (116268 found, 0 missing, 1014 empty, 4 duplicate, for
+Scanning labels /nas/thuchk/datasets/coco/labels/train2017.cache3 (117266 found, 0 missing, 1021 empty, 4 duplicate, for
+ 118287 images): 118287it [00:08, 13776.79it/s]
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (1180 found, 0 missing, 13 empty, 0 duplicate, for 5000
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (2365 found, 0 missing, 21 empty, 0 duplicate, for 5000
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (3521 found, 0 missing, 32 empty, 0 duplicate, for 5000
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (4661 found, 0 missing, 46 empty, 0 duplicate, for 5000
+Scanning labels /nas/thuchk/datasets/coco/labels/val2017.cache3 (4952 found, 0 missing, 48 empty, 0 duplicate, for 5000
+images): 5000it [00:00, 11441.42it/s]
+Image sizes 1280 train, 1280 test
+Using 8 dataloader workers
+Logging results to runs/train/yolor_p633
+Starting training for 1 epochs...
+
+     Epoch   gpu_mem       box       obj       cls     total   targets  img_size
+       0/0     7.76G   0.08104   0.03327   0.08312    0.1974        42      1280: 100%|█| 14786/14786 [1:21:47<00:00,  3
+Optimizer stripped from runs/train/yolor_p633/weights/last.pt, 149.6MB
+Optimizer stripped from runs/train/yolor_p633/weights/best.pt, 149.6MB
+1 epochs completed in 1.365 hours.
+
+(yolor) ubuntu@haca1002:/nas/thuchk/yolor$ tmux capture-pane -pS -300 > yolor_nvidia_bs8_withoutamp.log
+
